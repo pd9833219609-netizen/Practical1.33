@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: grid;
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto 1fr auto;
+        height: 100vh;
+    }
+
+    /* Header */
+    .header {
+        grid-area: header;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .theme-switch {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        grid-area: sidebar;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .sidebar a:hover {
+        text-decoration: underline;
+    }
+
+    /* Main content */
+    .main-content {
+        grid-area: main;
+        padding: 20px;
+    }
+
+    /* Footer */
+    .footer {
+        grid-area: footer;
+        text-align: center;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    /* ===== THEME MODES ===== */
+    body.dark-mode {
+        background-color: #1e1e1e;
+        color: white;
+    }
+
+    body.dark-mode .header {
+        background-color: #333;
+    }
+
+    body.dark-mode .sidebar {
+        background-color: #2e2e2e;
+    }
+
+    body.dark-mode .sidebar a {
+        color: #bb86fc;
+    }
+
+    body.dark-mode .footer {
+        background-color: #333;
+    }
+</style>
+</head>
+<body class="light-mode">
+
+<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <h1>Admin Dashboard</h1>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            Dark Mode
+        </label>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h2>Welcome, Admin!</h2>
+        <p>This is the main content area. Add charts, tables, or reports here.</p>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 Admin Panel
+    </footer>
+</div>
+
+<script>
+    document.getElementById("theme-toggle").addEventListener("change", function() {
+        document.body.classList.toggle("dark-mode");
+    });
+</script>
+
+</body>
+</html>
